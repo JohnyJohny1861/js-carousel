@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #585858;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    display: flex;
+    background: radial-gradient(#858484, #000000);
+    border-radius: 50%;
+    /* overflow: hidden; */
+}
+
+.prev, .next {
+    width: 10%;
+    height: 60px;
+    border-radius: 50%;
+    transition: .2s all;
+    background-color: #e2e2e2;
+    border: 1px solid #888888;
+    z-index: 1;
+    object-fit: contain;
+}
+
+.prev {
+    align-self: flex-end;
+    transform: translate(30px, -30px);
+}
+
+.next {
+    transform: translate(-30px, 30px);
+}
+
+.prev:hover, .next:hover {
+    box-shadow: 0 3px 8px #000000;
+    cursor: pointer;
+    border: 2px solid #414141;
+}
+
+.prev:hover {
+    transform: translate(30px, -32px);
+}
+
+.prev:active {
+    transform: translate(30px, -29px);
+}
+
+.next:hover {
+    transform: translate(-30px, 28px);
+}
+
+.next:active {
+    transform: translate(-30px, 31px);
+}
+
+
+.mid {
+    width: 80%;
+    height: 100%;
+    /* background-color: #eeeeee; */
+    /* overflow: hidden; */
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appear {
+    animation: appear .6s linear forwards;
+    height: 100%;
+}
+
+.disappear {
+    animation: disappear .5s linear forwards;
+}
+
+@keyframes appear {
+    0% { 
+        transform: translateY(10%) scale(1.1); 
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateY(0) scale(.85); 
+        opacity: 1;
+        visibility: visible;
+    }
+}
